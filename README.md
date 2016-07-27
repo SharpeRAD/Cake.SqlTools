@@ -1,4 +1,4 @@
-# Cake.SqlToolz
+# Cake.SqlTools
 Cake Build addin for executing sql scripts against a database
 
 [![Build status](https://ci.appveyor.com/api/projects/status/l726ygqbcja9emgb?svg=true)](https://ci.appveyor.com/project/SharpeRAD/cake-sqltools)
