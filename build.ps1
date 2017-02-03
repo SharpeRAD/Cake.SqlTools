@@ -48,41 +48,55 @@ function MD5HashFile([string] $filePath)
 
 
 
+Write-Host "Preparing to run build script..."
+
+
+
+# Script Location
+if(!$PSScriptRoot)
+{
+    $PSScriptRoot = Split-Path $MyInvocation.MyCommand.Path -Parent
+}
+
 
 
 # Find tools
-if(($Tools.IsPresent) -and (Test-Path $Tools))
+if($Tools)
 {
     # Parameter
-    Write-Host "Using tools parameter"
-    $TOOLS_DIR = $Tools
+    Write-Verbose -Message "Using tools parameter"
+    $TOOLS_DIR = Join-Path $PSScriptRoot $Tools
 }
 elseif (Test-Path "C:/Tools/Cake/Cake.exe")
 {
     # Shared location
-    Write-Host "Using shared tools"
+    Write-Verbose -Message "Using shared tools"
     $TOOLS_DIR = "C:/Tools"
 }
 else
 {
     # Local path
-    Write-Host "Using local tools"
-    $PSScriptRoot = split-path -parent $MyInvocation.MyCommand.Definition
-    $TOOLS_DIR = Join-Path $PSScriptRoot "/tools"
-
-    if (!(Test-Path $TOOLS_DIR))
-    {
-        Write-Host "Creating tools directory"
-        New-Item $TOOLS_DIR -itemtype directory
-    }
+    Write-Verbose -Message "Using local tools"
+    $TOOLS_DIR = Join-Path $PSScriptRoot "tools"
 }
 
-$ADDINS_DIR = Join-Path $TOOLS_DIR "/Addins"
-$MODULES_DIR = Join-Path $TOOLS_DIR "/Modules"
+# Make sure tools folder exists
+if ((Test-Path $PSScriptRoot) -and !(Test-Path $TOOLS_DIR))
+{
+    Write-Verbose -Message "Creating tools directory..."
+    New-Item -Path $TOOLS_DIR -Type directory | out-null
+}
+
+
 
 
 
 # Define Paths
+$ADDINS_DIR = Join-Path $TOOLS_DIR "/Addins"
+$MODULES_DIR = Join-Path $TOOLS_DIR "/Modules"
+
+Write-Verbose -Message $ADDINS_DIR
+
 $CAKE_EXE = Join-Path $TOOLS_DIR "Cake/Cake.exe"
 
 $NUGET_URL = "https://nuget.org/nuget.exe"
