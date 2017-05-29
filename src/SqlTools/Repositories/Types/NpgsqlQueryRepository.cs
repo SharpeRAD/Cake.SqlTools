@@ -1,6 +1,12 @@
-﻿using Npgsql;
+﻿#region Using Statements
 using System.Data;
+
 using Cake.Core.Diagnostics;
+
+using Npgsql;
+#endregion
+
+
 
 namespace Cake.SqlTools
 {
