@@ -48,6 +48,10 @@ namespace Cake.SqlTools
                 case "MySql":
                     repository = new MySqlQueryRepository(context.Log);
                     break;
+
+                case "Npgsql":
+                    repository = new NpgsqlQueryRepository(context.Log);
+                    break;
             }
 
 
