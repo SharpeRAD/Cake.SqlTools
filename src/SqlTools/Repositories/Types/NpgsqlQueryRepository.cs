@@ -4,6 +4,9 @@ using Cake.Core.Diagnostics;
 
 namespace Cake.SqlTools
 {
+    /// <summary>
+    /// Provides a method to execture sql queries against a PostgresSql database
+    /// </summary>
     public class NpgsqlQueryRepository : BaseSqlQueryRepository
     {
         #region Constructors (1)
