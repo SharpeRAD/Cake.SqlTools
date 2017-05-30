@@ -24,7 +24,7 @@ Cake Build addin for executing sql scripts against a database
 ## Implemented functionality
 
 * Execute a query against a database
-* Contains a provider for MS Sql and MySql
+* Contains a provider for MS Sql, MySql and PostgreSQL
 
 
 
