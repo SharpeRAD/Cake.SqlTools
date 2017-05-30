@@ -172,6 +172,7 @@ Task("Copy-Files")
 
     CopyFileToDirectory(buildDir + "/MySql.Data.dll", binDir);
     CopyFileToDirectory(buildDir + "/Npgsql.dll", binDir);
+    CopyFileToDirectory(buildDir + "/System.Threading.Tasks.Extensions.dll", binDir);
 
     CopyFiles(new FilePath[] { "LICENSE", "README.md", "ReleaseNotes.md" }, binDir);
 
