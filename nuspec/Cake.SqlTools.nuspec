@@ -19,8 +19,8 @@
         <dependencies>
             <dependency id="Cake.Core" version="0.11.0" />
             <dependency id="MySql.Data" version="6.9.9" />
-			<dependency id="Npgsql.dll" version="3.2.2" />
-            <dependency id="System.Threading.Tasks.Extensions.dll" version="4.3.0" />
+			<dependency id="Npgsql" version="3.2.2" />
+            <dependency id="System.Threading.Tasks.Extensions" version="4.3.0" />
         </dependencies>
     </metadata>
 
