@@ -26,9 +26,12 @@
 
     <files>
         <file src="Cake.SqlTools.dll" target="lib/net45" />
+        <file src="Cake.SqlTools.xml" target="lib/net45" />
+        
         <file src="MySql.Data.dll" target="lib/net45" />
 		<file src="Npgsql.dll" target="lib/net45" />
         <file src="System.Threading.Tasks.Extensions.dll" target="lib/net45" />
+        
         <file src="LICENSE" />
     </files>
 </package>
