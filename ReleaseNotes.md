@@ -1,3 +1,6 @@
+### New in 0.0.6 (Released 2017/05/31)
+* [Bug] Fix nuget references
+
 ### New in 0.0.5 (Released 2017/05/31)
 * [Bug] Fix nuget references
 

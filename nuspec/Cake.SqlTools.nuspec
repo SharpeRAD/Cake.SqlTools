@@ -17,21 +17,19 @@
         <tags>Cake Script Build SQL Queries</tags>
 
         <dependencies>
-            <dependency id="Cake.Core" version="0.11.0" />
+            <dependency id="Cake.Core" version="0.17.0" />
             <dependency id="MySql.Data" version="6.9.9" />
-			<dependency id="Npgsql" version="3.2.2" />
-            <dependency id="System.Threading.Tasks.Extensions" version="4.3.0" />
         </dependencies>
     </metadata>
 
     <files>
         <file src="Cake.SqlTools.dll" target="lib/net45" />
         <file src="Cake.SqlTools.xml" target="lib/net45" />
-        
+
         <file src="MySql.Data.dll" target="lib/net45" />
 		<file src="Npgsql.dll" target="lib/net45" />
         <file src="System.Threading.Tasks.Extensions.dll" target="lib/net45" />
-        
+
         <file src="LICENSE" />
     </files>
 </package>

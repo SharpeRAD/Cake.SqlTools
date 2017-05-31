@@ -6,8 +6,8 @@
 using System.Reflection;
 
 [assembly: AssemblyProduct("Cake.SqlTools")]
-[assembly: AssemblyVersion("0.0.1")]
-[assembly: AssemblyFileVersion("0.0.1")]
-[assembly: AssemblyInformationalVersion("0.0.1")]
-[assembly: AssemblyCopyright("Copyright (c) 2015 - 2016 Phillip Sharpe")]
+[assembly: AssemblyVersion("0.0.6")]
+[assembly: AssemblyFileVersion("0.0.6")]
+[assembly: AssemblyInformationalVersion("0.0.6")]
+[assembly: AssemblyCopyright("Copyright (c) 2015 - 2017 Phillip Sharpe")]
 
