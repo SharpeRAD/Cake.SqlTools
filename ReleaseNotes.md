@@ -1,3 +1,6 @@
+### New in 0.0.8 (Released 2017/07/22)
+* [Improvement] Use CakeContrib icon
+
 ### New in 0.0.7 (Released 2017/05/31)
 * [Bug] Fix nuget references
 

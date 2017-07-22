@@ -67,12 +67,6 @@ if($Tools)
     Write-Verbose -Message "Using tools parameter"
     $TOOLS_DIR = Join-Path $PSScriptRoot $Tools
 }
-elseif (Test-Path "C:/Tools/Cake/Cake.exe")
-{
-    # Shared location
-    Write-Verbose -Message "Using shared tools"
-    $TOOLS_DIR = "C:/Tools"
-}
 else
 {
     # Local path
