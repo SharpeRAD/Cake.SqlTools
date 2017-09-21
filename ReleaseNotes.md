@@ -1,3 +1,6 @@
+### New in 0.0.9 (Released 2017/09/21)
+* [Improvement] Updated to Cake.Core 0.22.2
+
 ### New in 0.0.8 (Released 2017/07/22)
 * [Improvement] Use CakeContrib icon
 
