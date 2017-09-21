@@ -99,7 +99,7 @@ Write-Verbose -Message $ADDINS_DIR
 
 $CAKE_EXE = Join-Path $TOOLS_DIR "Cake/Cake.exe"
 
-$NUGET_URL = "https://nuget.org/nuget.exe"
+$NUGET_URL = "https://dist.nuget.org/win-x86-commandline/latest/nuget.exe"
 $NUGET_EXE = Join-Path $TOOLS_DIR "nuget.exe"
 
 $PACKAGES_CONFIG = Join-Path $TOOLS_DIR "packages.config"
