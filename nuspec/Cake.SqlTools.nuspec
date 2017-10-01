@@ -15,6 +15,10 @@
         <copyright>Copyright (c) Phillip Sharpe 2015</copyright>
         <releaseNotes>Initial Release</releaseNotes>
         <tags>Cake Script Build SQL Queries</tags>
+
+        <dependencies>
+            <dependency id="Cake.Core" version="0.22.0" />
+        </dependencies>
     </metadata>
 
     <files>
