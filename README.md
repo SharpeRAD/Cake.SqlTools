@@ -84,6 +84,12 @@ A complete Cake example can be found [here](https://github.com/SharpeRAD/Cake.Sq
 
 
 
+## TroubleShooting
+
+* Please be aware of the breaking changes that occurred with the release of [Cake v0.22.0](https://cakebuild.net/blog/2017/09/cake-v0.22.0-released), you will need to upgrade Cake in order to use Cake.SqlTools v0.1.0 or above.
+
+
+
 ## Plays well with
 
 If your looking for a way to trigger cake tasks based on windows events or at scheduled intervals then check out [CakeBoss](https://github.com/SharpeRAD/CakeBoss).
