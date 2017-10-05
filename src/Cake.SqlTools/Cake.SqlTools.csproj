@@ -21,7 +21,7 @@
     <ItemGroup>
         <PackageReference Include="Cake.Core" Version="0.22.0" />
 
-        <PackageReference Include="MySql.Data" Version="6.10.3-rc" />
+        <PackageReference Include="MySql.Data" Version="6.9.9" />
         <PackageReference Include="Npgsql" Version="3.2.5" />
     </ItemGroup>
 </Project>

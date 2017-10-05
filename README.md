@@ -102,6 +102,8 @@ Copyright (c) 2015 - 2016 Phillip Sharpe
 
 Cake.SqlTools is provided as-is under the MIT license. For more information see [LICENSE](https://github.com/SharpeRAD/Cake.SqlTools/blob/master/LICENSE).
 
+Please be aware that MySql.Data uses the GNU public [LICENSE]([LICENSE](https://github.com/SharpeRAD/Cake.SqlTools/blob/master/LICENSE).).
+
 
 
 ## Share the love

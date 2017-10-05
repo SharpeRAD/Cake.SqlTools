@@ -1,3 +1,6 @@
+### New in 0.1.1 (Released 2017/10/05)
+* [Bug] Referencing issues using more recent versions of MySql.Data
+
 ### New in 0.1.0 (Released 2017/10/01)
 * [Improvement] Updated Cake reference to v0.22.0
 * [Improvement] Moved to net461 for Cake compatibility
