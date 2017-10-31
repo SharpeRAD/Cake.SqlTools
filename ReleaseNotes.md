@@ -1,3 +1,6 @@
+### New in 0.1.2 (Released 2017/10/31)
+* [Improvement] Drop down to net46
+
 ### New in 0.1.1 (Released 2017/10/05)
 * [Bug] Referencing issues using more recent versions of MySql.Data
 

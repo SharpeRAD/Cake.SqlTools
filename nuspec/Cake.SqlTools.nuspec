@@ -22,12 +22,12 @@
     </metadata>
 
     <files>
-        <file src="net461/Cake.SqlTools.dll" target="lib/net461" />
-        <file src="net461/Cake.SqlTools.xml" target="lib/net461" />
+        <file src="net46/Cake.SqlTools.dll" target="lib/net46" />
+        <file src="net46/Cake.SqlTools.xml" target="lib/net46" />
 
-        <file src="net461/MySql.Data.dll" target="lib/net461" />
-        <file src="net461/Npgsql.dll" target="lib/net461" />
-        <file src="net461/System.Threading.Tasks.Extensions.dll" target="lib/net461" />
+        <file src="net46/MySql.Data.dll" target="lib/net46" />
+        <file src="net46/Npgsql.dll" target="lib/net46" />
+        <file src="net46/System.Threading.Tasks.Extensions.dll" target="lib/net46" />
         
         <file src="LICENSE" />
     </files>
