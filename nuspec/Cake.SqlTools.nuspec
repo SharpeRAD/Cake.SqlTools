@@ -28,9 +28,13 @@
     <files>
         <file src="net46/MySql.Data.dll" target="lib/net46" />
         <file src="net46/Npgsql.dll" target="lib/net46" />
+        <file src="net46/Google.Protobuf.dll" target="lib/net46" />
+        
         <file src="net46/System.Data.Common.dll" target="lib/net46" />
         <file src="net46/System.Data.SqlClient.dll" target="lib/net46" />
+        <file src="net46/System.ValueTuple.dll" target="lib/net46" />
         <file src="net46/System.Threading.Tasks.Extensions.dll" target="lib/net46" />
+        <file src="net46/System.Runtime.CompilerServices.Unsafe.dll" target="lib/net46" />
 
         <file src="net46/Cake.SqlTools.dll" target="lib/net46" />
         <file src="net46/Cake.SqlTools.xml" target="lib/net46" />
