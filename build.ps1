@@ -54,7 +54,7 @@ Param(
 
 
 
-$CakeVersion = "0.26.0"
+$CakeVersion = "0.29.0"
 $DotNetChannel = "preview";
 $DotNetVersion = "2.1.2";
 $DotNetInstallerUri = "https://dot.net/v1/dotnet-install.ps1";
@@ -139,6 +139,11 @@ Function Remove-PathVariable([string]$VariableToRemove)
         [Environment]::SetEnvironmentVariable("PATH", [System.String]::Join(';', $newItems), "Process")
     }
 }
+
+
+
+# Enforce TLS 1.2
+[System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12;
 
 
 

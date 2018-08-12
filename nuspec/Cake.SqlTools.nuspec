@@ -17,11 +17,11 @@
         <tags>Cake Script Build SQL Queries</tags>
 
         <dependencies>
-            <dependency id="Cake.Core" version="0.26.0" />
+            <dependency id="Cake.Core" version="0.29.0" />
 
             <dependency id="System.Data.SqlClient" version="4.4.3" />
-            <dependency id="MySql.Data" version="8.0.10-rc" />
-            <dependency id="Npgsql" version="4.0.0-preview2" />
+            <dependency id="MySql.Data" version="8.0.12" />
+            <dependency id="Npgsql" version="4.0.2" />
         </dependencies>
     </metadata>
 

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <AssemblyTitle>Cake.SqlTools</AssemblyTitle>
         <AssemblyName>Cake.SqlTools</AssemblyName>
@@ -19,10 +19,10 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cake.Core" Version="0.26.0" />
+        <PackageReference Include="Cake.Core" Version="0.29.0" PrivateAssets="All" />
 
         <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
-        <PackageReference Include="MySql.Data" Version="8.0.10-rc" />
-        <PackageReference Include="Npgsql" Version="4.0.0-preview2" />
+        <PackageReference Include="MySql.Data" Version="8.0.12" />
+        <PackageReference Include="Npgsql" Version="4.0.2" />
     </ItemGroup>
 </Project>
