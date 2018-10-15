@@ -31,6 +31,7 @@ Cake Build addin for executing sql scripts against a database
 ## Referencing
 
 [![NuGet Version](http://img.shields.io/nuget/v/Cake.SqlTools.svg?style=flat)](https://www.nuget.org/packages/Cake.SqlTools/)
+[![NuGet Downloads](http://img.shields.io/nuget/dt/Cake.SqlTools.svg?style=flat)](https://www.nuget.org/packages/Cake.SqlTools/)
 
 Cake.SqlTools is available as a nuget package from the package manager console:
 
