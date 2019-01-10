@@ -64,10 +64,6 @@ namespace Cake.SqlTools
                     conn.CreateTextCommand(query)
                         .SetTimeout(0)
                         .ExecuteNonQuery();
-
-                    _Logger.Information("Sql query executed successfully.");
-
-                    return true;
                 }
             }
             catch (Exception e)
@@ -77,7 +73,8 @@ namespace Cake.SqlTools
                 throw;
             }
             
-            return false;
+            _Logger.Information("Sql query executed successfully.");
+            return true;
         }
         #endregion
     }
