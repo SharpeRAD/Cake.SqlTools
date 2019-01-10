@@ -76,6 +76,8 @@ namespace Cake.SqlTools
                 _Logger.Error(e.Message);
                 throw;
             }
+            
+            return false;
         }
         #endregion
     }
