@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
     <PropertyGroup>
         <AssemblyTitle>Cake.SqlTools</AssemblyTitle>
         <AssemblyName>Cake.SqlTools</AssemblyName>
@@ -19,7 +19,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cake.Core" Version="0.29.0" PrivateAssets="All" />
+        <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
 
         <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
         <PackageReference Include="MySql.Data" Version="8.0.12" />
