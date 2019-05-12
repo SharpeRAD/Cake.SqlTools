@@ -1,3 +1,6 @@
+### New in 0.2.3 (Released 2019/05/12)
+* [Improvement] Update to Cake.Core v0.33
+
 ### New in 0.2.2 (Released 2019/01/10)
 * [Improvement] Throw exceptions
 

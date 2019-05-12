@@ -10,6 +10,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Build", "Build", "{409BC6DA
 		..\.gitignore = ..\.gitignore
 		..\appveyor.yml = ..\appveyor.yml
 		..\build.cake = ..\build.cake
+		..\cake.config = ..\cake.config
 	EndProjectSection
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{04DD68ED-2973-4B5E-964B-9FA607BB218D}"
@@ -24,7 +25,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{3A8E8897
 		..\nuspec\Cake.SqlTools.nuspec = ..\nuspec\Cake.SqlTools.nuspec
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cake.SqlTools", "Cake.SqlTools\Cake.SqlTools.csproj", "{8FC19DAE-52B1-404B-9439-19C4DDF5E69C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.SqlTools", "Cake.SqlTools\Cake.SqlTools.csproj", "{8FC19DAE-52B1-404B-9439-19C4DDF5E69C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
