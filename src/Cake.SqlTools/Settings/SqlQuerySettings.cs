@@ -16,6 +16,7 @@ namespace Cake.SqlTools
         {
             this.Provider = "MsSql";
             this.ConnectionString = "";
+            this.AllowLogs = true;
         }
 		#endregion
 
@@ -33,6 +34,11 @@ namespace Cake.SqlTools
         /// Gets or sets the sql connection string to connect with
         /// </summary>
         public string ConnectionString { get; set; }
-		#endregion
+
+        /// <summary>
+        /// Gets or sets whether logs can be written or not
+        /// </summary>
+        public bool AllowLogs { get; set; }
+        #endregion
     }
 }

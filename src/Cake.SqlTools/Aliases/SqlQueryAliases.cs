@@ -36,22 +36,22 @@ namespace Cake.SqlTools
                 throw new ArgumentNullException("settings");
             }
 
-
+            ICakeLog log = settings.AllowLogs ? context.Log : new Logging.QuietLog();
 
             ISqlQueryRepository repository = null;
 
             switch (settings.Provider)
             {
                 case "MsSql":
-                    repository = new MsSqlQueryRepository(context.Log);
+                    repository = new MsSqlQueryRepository(log);
                     break;
 
                 case "MySql":
-                    repository = new MySqlQueryRepository(context.Log);
+                    repository = new MySqlQueryRepository(log);
                     break;
 
                 case "Npgsql":
-                    repository = new NpgsqlQueryRepository(context.Log);
+                    repository = new NpgsqlQueryRepository(log);
                     break;
             }
 
@@ -63,7 +63,7 @@ namespace Cake.SqlTools
             }
             else
             {
-                context.Log.Error("Unknown sql provider {0}", settings.Provider);
+                log.Error("Unknown sql provider {0}", settings.Provider);
                 return false;
             }
         }
@@ -88,7 +88,7 @@ namespace Cake.SqlTools
                 throw new ArgumentNullException("settings");
             }
 
-
+            ICakeLog log = settings.AllowLogs ? context.Log : new Logging.QuietLog();
 
             IFile file = context.FileSystem.GetFile(path);
 
@@ -100,7 +100,7 @@ namespace Cake.SqlTools
             }
             else
             {
-                context.Log.Error("Missing sql file {0}", path.FullPath);
+                log.Error("Missing sql file {0}", path.FullPath);
                 return false;
             }
         }
