@@ -1,6 +1,8 @@
 # Build script
 init:
   - git config --global core.autocrlf true
+  
+image: Visual Studio 2019
 
 # Build script
 build_script:
