@@ -5,7 +5,7 @@
         <PackageId>Cake.SqlTools</PackageId>
         <OutputType>Library</OutputType>
 
-        <TargetFrameworks>net46;netstandard2.0;</TargetFrameworks>
+        <TargetFrameworks>net46;netstandard2.0;net5.0</TargetFrameworks>
 
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
         <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
@@ -19,10 +19,11 @@
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
+        <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
 
-        <PackageReference Include="System.Data.SqlClient" Version="4.4.3" />
-        <PackageReference Include="MySql.Data" Version="8.0.12" />
-        <PackageReference Include="Npgsql" Version="4.0.2" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.1" />
+        <PackageReference Include="MySql.Data" Version="8.0.23" />
+        <PackageReference Include="Npgsql" Version="4.0.11" Condition="'$(TargetFramework)' == 'net46'" />
+        <PackageReference Include="Npgsql" Version="5.0.3" Condition="'$(TargetFramework)' != 'net46'" />
     </ItemGroup>
 </Project>
