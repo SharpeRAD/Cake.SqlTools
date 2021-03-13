@@ -17,10 +17,10 @@
         <tags>Cake Script Build SQL Queries</tags>
 	    <dependencies>
 		    <group>
-			    <dependency id="Microsoft.Data.SqlClient" version="2.1.1" />
+			    <dependency id="Microsoft.Data.SqlClient" version="2.1.2" />
 			    <dependency id="MySql.Data" version="8.0.23" />
 		    </group>
-		    <group targetFramework=".NETFramework4.6">
+		    <group targetFramework=".NETFramework4.6.1">
 			    <dependency id="Npgsql" version="4.0.2" />
 		    </group>
 		    <group targetFramework=".NETStandard2.0">
@@ -33,9 +33,9 @@
     </metadata>
 
     <files>
-        <file src="net46/Cake.SqlTools.dll" target="lib/net46" />
-        <file src="net46/Cake.SqlTools.xml" target="lib/net46" />
-        <file src="net46/Cake.SqlTools.pdb" target="lib/net46" />
+        <file src="net461/Cake.SqlTools.dll" target="lib/net461" />
+        <file src="net461/Cake.SqlTools.xml" target="lib/net461" />
+        <file src="net461/Cake.SqlTools.pdb" target="lib/net461" />
 
         <file src="netstandard2.0/Cake.SqlTools.dll" target="lib/netstandard2.0" />
         <file src="netstandard2.0/Cake.SqlTools.xml" target="lib/netstandard2.0" />
