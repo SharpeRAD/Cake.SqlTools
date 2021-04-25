@@ -14,7 +14,7 @@
         <requireLicenseAcceptance>false</requireLicenseAcceptance>
         <copyright>Copyright (c) Phillip Sharpe 2015</copyright>
         <releaseNotes>Initial Release</releaseNotes>
-        <tags>Cake Script Build SQL Queries</tags>
+        <tags>Cake cake-addin Script Build SQL Queries</tags>
 	    <dependencies>
 		    <group>
 			    <dependency id="Microsoft.Data.SqlClient" version="2.1.2" />
