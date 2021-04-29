@@ -1,3 +1,6 @@
+### New in 1.0.2 (Released 2021/04/29)
+* [Improvement] Loading native libs for NET 4.6.1
+
 ### New in 1.0.1 (Released 2021/04/25)
 * [Improvement] Quiet logging
 
