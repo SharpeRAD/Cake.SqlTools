@@ -43,6 +43,7 @@ namespace Cake.SqlTools
             switch (settings.Provider)
             {
                 case "MsSql":
+                    Initializer.InitializeNativeSearchPath();
                     repository = new MsSqlQueryRepository(log);
                     break;
 
