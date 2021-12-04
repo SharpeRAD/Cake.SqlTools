@@ -41,9 +41,9 @@ Task("Build")
     }
 
     // Create build settings
-    var buildSettings = new DotNetCoreMSBuildSettings
+    var buildSettings = new DotNetMSBuildSettings
     {
-        Verbosity = DotNetCoreVerbosity.Normal,
+        Verbosity = DotNetVerbosity.Normal,
         TreatAllWarningsAs = Cake.Common.Tools.DotNetCore.MSBuild.MSBuildTreatAllWarningsAs.Error,
 
         MaxCpuCount = 3
@@ -61,7 +61,7 @@ Task("Build")
         ForceNoAlign = true,
         HideItemAndPropertyList = true,
 
-        Verbosity = DotNetCoreVerbosity.Minimal
+        Verbosity = DotNetVerbosity.Minimal
     });
 
 
@@ -69,7 +69,7 @@ Task("Build")
     // Build Solution
     Information("Building {0}", solution);
 
-    DotNetCoreBuild(solution, new DotNetCoreBuildSettings
+    DotNetBuild(solution, new DotNetBuildSettings
     {
         Configuration = configuration,
 
@@ -110,7 +110,7 @@ Task("Build")
     {
         IncomingWebHookUrl = webHookUrl,
         UserName = "Cake",
-        IconUrl = new System.Uri("https://cdn.jsdelivr.net/gh/cake-build/graphics/png/cake-small.png")
+        IconUrl = new System.Uri("https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/addin/cake-contrib-addin-medium.png")
     };
 
     var title = "Build failed for " + appName + " v" + version;

@@ -1,81 +1,66 @@
-#region Using Statements
-using System;
+﻿using System;
 using System.Data;
 
 using Cake.Core.Diagnostics;
-#endregion
-
-
 
 namespace Cake.SqlTools
 {
     /// <summary>
-    /// Provides a method to execture sql queries against a database
+    /// Provides a method to execute sql queries against a database.
     /// </summary>
     public abstract class BaseSqlQueryRepository : ISqlQueryRepository
     {
-        #region Fields
-        private ICakeLog _Logger;
-        #endregion
+        private readonly ICakeLog _logger;
 
-
-
-
-
-        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="BaseSqlQueryRepository" /> class.
         /// </summary>
         /// <param name="log">The log.</param>
-        public BaseSqlQueryRepository(ICakeLog log)
+        protected BaseSqlQueryRepository(ICakeLog log)
         {
-            _Logger = log;
-        }
-        #endregion
-
-
-
-
-
-        #region Methods
-        /// <summary>
-        /// Opens a connection to the database
-        /// </summary>
-        /// <param name="connectionString">The connectionString to connect with.</param>
-        protected virtual IDbConnection OpenConnection(string connectionString)
-        {
-            return null;
+            _logger = log;
         }
 
-
-
         /// <summary>
-        /// Executes a sql query against a database
+        /// Executes a sql query against a database.
         /// </summary>
         /// <param name="connectionString">The connectionString to connect with.</param>
         /// <param name="query">The sql query to execute.</param>
+        /// <returns>True if command execution was successful.</returns>
         public bool Execute(string connectionString, string query)
         {
             try
             {
-                using (IDbConnection conn = this.OpenConnection(connectionString))
+                using var conn = OpenConnection(connectionString);
+                if (conn is null)
                 {
-                    //Call Command
-                    conn.CreateTextCommand(query)
-                        .SetTimeout(0)
-                        .ExecuteNonQuery();
+                    throw new ConnectionNullException();
                 }
+
+                // Call Command
+                using var cmd = conn.CreateTextCommand(query);
+                cmd.SetTimeout(0)
+                    .ExecuteNonQuery();
             }
             catch (Exception e)
             {
-                //Error
-                _Logger.Error(e.Message);
+                // Error
+                _logger.Error(e.Message);
                 throw;
             }
-            
-            _Logger.Information("Sql query executed successfully.");
+
+            _logger.Information("Sql query executed successfully.");
             return true;
         }
-        #endregion
+
+        /// <summary>
+        /// Opens a connection to the database.
+        /// </summary>
+        /// <param name="connectionString">The connectionString to connect with.</param>
+        /// <returns><see cref="IDbConnection"/> instance or null.</returns>
+        protected virtual IDbConnection? OpenConnection(string connectionString)
+        {
+            return null;
+        }
     }
 }
