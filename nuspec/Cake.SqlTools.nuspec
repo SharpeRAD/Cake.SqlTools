@@ -18,8 +18,8 @@
     <dependencies>
       <group>
         <dependency id="Microsoft.Data.SqlClient" version="4.0.0" />
-        <dependency id="MySql.Data" version="8.0.27" />
-        <dependency id="Npgsql" version="6.0.1" />
+        <dependency id="MySql.Data" version="8.0.30" />
+        <dependency id="Npgsql" version="6.0.6" />
       </group>
     </dependencies>
   </metadata>
