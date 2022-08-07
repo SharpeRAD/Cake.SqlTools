@@ -1,21 +1,14 @@
-#region Using Statements
-using System.Data;
-
-using MySql.Data.MySqlClient;
-
+﻿using System.Data;
 using Cake.Core.Diagnostics;
-#endregion
-
-
+using MySql.Data.MySqlClient;
 
 namespace Cake.SqlTools
 {
     /// <summary>
-    /// Provides a method to execture sql queries against a MySql database
+    /// Provides a method to execture sql queries against a MySql database.
     /// </summary>
     public class MySqlQueryRepository : BaseSqlQueryRepository
     {
-        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="MySqlQueryRepository" /> class.
         /// </summary>
@@ -23,28 +16,24 @@ namespace Cake.SqlTools
         public MySqlQueryRepository(ICakeLog log)
             : base(log)
         {
-
         }
-        #endregion
 
-
-
-
-
-        #region Methods
         /// <summary>
-        /// Opens a connection to the database
+        /// Opens a connection to the database.
         /// </summary>
         /// <param name="connectionString">The connectionString to connect with.</param>
-        protected override  IDbConnection OpenConnection(string connectionString)
+        /// <returns><see cref="IDbConnection"/> implementation.</returns>
+        protected override IDbConnection? OpenConnection(string connectionString)
         {
-            IDbConnection con = MySqlClientFactory.Instance.CreateConnection();
+            var con = MySqlClientFactory.Instance.CreateConnection();
 
-            con.ConnectionString = connectionString;
-            con.Open();
+            if (con is not null)
+            {
+                con.ConnectionString = connectionString;
+                con.Open();
+            }
 
             return con;
         }
-        #endregion
     }
 }

@@ -21,7 +21,7 @@ Task("Clean")
         nugetDir, deployDir, binDir
     });
 
-	
+
 
 	Information("Cleaning nuspec temp files");
 
@@ -42,9 +42,9 @@ Task("Restore-Nuget-Packages")
         {
     		Information("Restoring {0}", project);
 
-    		DotNetCoreRestore("./src/" + project, new DotNetCoreRestoreSettings()
+    		DotNetRestore("./src/" + project, new DotNetRestoreSettings()
             {
-				Verbosity = DotNetCoreVerbosity.Normal
+				Verbosity = DotNetVerbosity.Normal
             });
         }
 	}
@@ -54,9 +54,9 @@ Task("Restore-Nuget-Packages")
     {
         Information("Restoring: {0}", project);
 
-        DotNetCoreRestore("./src/" + project, new DotNetCoreRestoreSettings()
+        DotNetRestore("./src/" + project, new DotNetRestoreSettings()
         {
-			Verbosity = DotNetCoreVerbosity.Normal
+			Verbosity = DotNetVerbosity.Normal
         });
     }
 });

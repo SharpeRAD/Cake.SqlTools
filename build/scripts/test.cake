@@ -15,7 +15,7 @@ Task("Run-Unit-Tests")
         string outputPath = testResultsDir + "/" + test.Replace(".Tests", "") + ".xml";
         outputPath = MakeAbsolute(File(outputPath)).FullPath;
 
-        DotNetCoreTest("./src/" + test + "/" + test + ".csproj", new DotNetCoreTestSettings
+        DotNetTest("./src/" + test + "/" + test + ".csproj", new DotNetTestSettings
         {
             NoRestore = true,
             ArgumentCustomization = args => args.AppendSwitch("-a", " ", ".".Quote())

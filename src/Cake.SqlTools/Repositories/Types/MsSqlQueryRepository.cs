@@ -1,21 +1,14 @@
-#region Using Statements
-
-using System.Data;
-using Microsoft.Data.SqlClient;
-
+﻿using System.Data;
 using Cake.Core.Diagnostics;
-#endregion
-
-
+using Microsoft.Data.SqlClient;
 
 namespace Cake.SqlTools
 {
     /// <summary>
-    /// Provides a method to execture sql queries against a MsSql database
+    /// Provides a method to execute sql queries against a MsSql database.
     /// </summary>
     public class MsSqlQueryRepository : BaseSqlQueryRepository
     {
-        #region Constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="MsSqlQueryRepository" /> class.
         /// </summary>
@@ -23,19 +16,13 @@ namespace Cake.SqlTools
         public MsSqlQueryRepository(ICakeLog log)
             : base(log)
         {
-
         }
-        #endregion
 
-
-
-
-
-        #region Methods
         /// <summary>
-        /// Opens a connection to the database
+        /// Opens a connection to the database.
         /// </summary>
         /// <param name="connectionString">The connectionString to connect with.</param>
+        /// <returns><see cref="IDbConnection"/> implementation.</returns>
         protected override IDbConnection OpenConnection(string connectionString)
         {
             IDbConnection con = SqlClientFactory.Instance.CreateConnection();
@@ -45,6 +32,5 @@ namespace Cake.SqlTools
 
             return con;
         }
-        #endregion
     }
 }
