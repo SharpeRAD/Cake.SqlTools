@@ -1,48 +1,38 @@
-﻿#region Using Statements
-using System;
-using Cake.Core;
+﻿using Cake.Core;
 using Cake.Core.Annotations;
 using Cake.Core.Diagnostics;
 using Cake.Core.IO;
-#endregion
-
-
 
 namespace Cake.SqlTools
 {
     /// <summary>
-    /// Contains Cake aliases for executing sql queries
+    /// Contains Cake aliases for executing sql queries.
     /// </summary>
-    [CakeAliasCategory("SqlTools")]
+    [CakeAliasCategory(nameof(SqlTools))]
     public static class SqlQueryAliases
     {
-        #region Methods
         /// <summary>
         /// Executes a sql query against a database
         /// </summary>
         /// <param name="context">The cake context.</param>
         /// <param name="query">The sql query to execute.</param>
         /// <param name="settings">The <see cref="SqlQuerySettings"/> to use to connect with.</param>
+        /// <returns>True if command succeeded.</returns>
         [CakeMethodAlias]
         public static bool ExecuteSqlQuery(this ICakeContext context, string query, SqlQuerySettings settings)
         {
-            if (String.IsNullOrEmpty(query))
-            {
+            if (string.IsNullOrEmpty(query))
                 throw new ArgumentNullException(nameof(query));
-            }
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
 
-            ICakeLog log = settings.AllowLogs ? context.Log : new Logging.QuietLog();
+            ArgumentNullException.ThrowIfNull(nameof(settings));
 
-            ISqlQueryRepository repository = null;
+            var log = settings.AllowLogs ? context.Log : new Logging.QuietLog();
+
+            ISqlQueryRepository? repository = null;
 
             switch (settings.Provider)
             {
                 case "MsSql":
-                    Initializer.InitializeNativeSearchPath();
                     repository = new MsSqlQueryRepository(log);
                     break;
 
@@ -53,57 +43,42 @@ namespace Cake.SqlTools
                 case "Npgsql":
                     repository = new NpgsqlQueryRepository(log);
                     break;
+
+                default:
+                    log.Error("Unknown sql provider {0}", settings.Provider);
+                    return false;
             }
 
-
-
-            if (repository != null)
-            {
-                return repository.Execute(settings.ConnectionString, query);
-            }
-            else
-            {
-                log.Error("Unknown sql provider {0}", settings.Provider);
-                return false;
-            }
+            return repository.Execute(settings.ConnectionString, query);
         }
 
-
-
         /// <summary>
-        /// Executes a sql file against a database
+        /// Executes a sql file against a database.
         /// </summary>
         /// <param name="context">The cake context.</param>
         /// <param name="path">The path to the sql file to execute.</param>
         /// <param name="settings">The <see cref="SqlQuerySettings"/> to use to connect with.</param>
+        /// <returns>True if command succeeded.</returns>
         [CakeMethodAlias]
         public static bool ExecuteSqlFile(this ICakeContext context, FilePath path, SqlQuerySettings settings)
         {
-            if (path == null)
-            {
-                throw new ArgumentNullException(nameof(path));
-            }
-            if (settings == null)
-            {
-                throw new ArgumentNullException(nameof(settings));
-            }
+            ArgumentNullException.ThrowIfNull(nameof(path));
+            ArgumentNullException.ThrowIfNull(nameof(settings));
 
-            ICakeLog log = settings.AllowLogs ? context.Log : new Logging.QuietLog();
+            var log = settings.AllowLogs ? context.Log : new Logging.QuietLog();
 
-            IFile file = context.FileSystem.GetFile(path);
+            var file = context.FileSystem.GetFile(path);
 
             if (file.Exists)
             {
-                string query = file.ReadBytes().GetString();
+                var query = file.ReadBytes().GetString();
 
                 return context.ExecuteSqlQuery(query, settings);
             }
-            else
-            {
-                log.Error("Missing sql file {0}", path.FullPath);
-                return false;
-            }
+
+            log.Error("Missing sql file {0}", path.FullPath);
+            return false;
+
         }
-        #endregion
     }
 }

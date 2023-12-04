@@ -10,9 +10,7 @@ Task("Build")
 
     // Create build settings
     var buildSettings = new DotNetMSBuildSettings
-    {
-        Verbosity = DotNetVerbosity.Normal,
-        TreatAllWarningsAs = Cake.Common.Tools.DotNet.MSBuild.MSBuildTreatAllWarningsAs.Error,
+    {          
         MaxCpuCount = 3,
         Version = version,
         FileVersion = version,

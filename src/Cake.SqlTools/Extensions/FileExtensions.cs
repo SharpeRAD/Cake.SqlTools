@@ -1,17 +1,10 @@
-#region Using Statements
-using System.IO;
-using System.Text;
-
+﻿using System.Text;
 using Cake.Core.IO;
-#endregion
-
-
 
 namespace Cake.SqlTools
 {
     internal static class FileExtensions
     {
-        #region Methods
         internal static byte[] ReadBytes(this IFile file)
         {
             using var stream = file.OpenRead();
@@ -24,6 +17,5 @@ namespace Cake.SqlTools
         {
             return Encoding.UTF8.GetString(bytes);
         }
-        #endregion
     }
 }
