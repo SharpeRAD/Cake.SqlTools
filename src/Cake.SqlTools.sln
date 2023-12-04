@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.26730.15
+# Visual Studio Version 17
+VisualStudioVersion = 17.8.34322.80
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Source", "Source", "{7B702943-4526-4B9D-B8DD-F50821850150}"
 EndProject
@@ -18,11 +18,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Docs", "Docs", "{04DD68ED-2
 		..\LICENSE = ..\LICENSE
 		..\README.md = ..\README.md
 		..\ReleaseNotes.md = ..\ReleaseNotes.md
-	EndProjectSection
-EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Nuget", "Nuget", "{3A8E8897-6C64-42B0-B336-7A46480003B9}"
-	ProjectSection(SolutionItems) = preProject
-		..\nuspec\Cake.SqlTools.nuspec = ..\nuspec\Cake.SqlTools.nuspec
 	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cake.SqlTools", "Cake.SqlTools\Cake.SqlTools.csproj", "{8FC19DAE-52B1-404B-9439-19C4DDF5E69C}"

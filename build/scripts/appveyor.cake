@@ -9,12 +9,10 @@ Task("Update-AppVeyor-Build-Number")
     AppVeyor.UpdateBuildVersion(semVersion);
 });
 
-
-
 Task("Upload-AppVeyor-Artifacts")
-    .IsDependentOn("Zip-Files")
+    .IsDependentOn("Build")
     .WithCriteria(() => isRunningOnAppVeyor)
     .Does(() =>
 {
-    AppVeyor.UploadArtifact(zipPackage);
+    AppVeyor.UploadArtifact(packageFileName);
 });

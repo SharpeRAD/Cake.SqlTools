@@ -1,3 +1,7 @@
+### New in 2.0.0 (Released 2021/04/29)
+* [Improvement] Supports Cake 4.0
+* [Improvement] Changed .NET targets to .NET 6, .NET 7 and .NET 8
+
 ### New in 1.0.2 (Released 2021/04/29)
 * [Improvement] Loading native libs for NET 4.6.1
 

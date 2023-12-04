@@ -21,8 +21,15 @@ var projectNames = new List<string>()
     "Cake.SqlTools"
 };
 
-
-
+Task("Clean")
+    .Does(() =>
+{
+	EnsureDirectoryDoesNotExist(buildResultDir, new DeleteDirectorySettings {
+			Recursive = true,
+			Force = true
+		});
+		CreateDirectory(buildResultDir);	
+});
 
 
 ///////////////////////////////////////////////////////////////////////////////

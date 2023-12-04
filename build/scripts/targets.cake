@@ -3,9 +3,7 @@
 //////////////////////////////////////////////////////////////////////
 
 Task("Package")
-    .IsDependentOn("Run-Unit-Tests")
-    .IsDependentOn("Zip-Files")
-    .IsDependentOn("Create-NuGet-Packages")
+    .IsDependentOn("Build")
     .IsDependentOn("Publish-Local");
 
 Task("Publish")
