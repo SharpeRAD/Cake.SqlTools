@@ -1,9 +1,8 @@
 #region Using Statements
 
 using System.Data;
-using Microsoft.Data.SqlClient;
-
 using Cake.Core.Diagnostics;
+using Microsoft.Data.SqlClient;
 #endregion
 
 
@@ -38,7 +37,7 @@ namespace Cake.SqlTools
         /// <param name="connectionString">The connectionString to connect with.</param>
         protected override IDbConnection OpenConnection(string connectionString)
         {
-            IDbConnection con = SqlClientFactory.Instance.CreateConnection();
+            var con = SqlClientFactory.Instance.CreateConnection();
 
             con.ConnectionString = connectionString;
             con.Open();

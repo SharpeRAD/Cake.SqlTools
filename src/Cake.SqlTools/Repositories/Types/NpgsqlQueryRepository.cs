@@ -38,7 +38,7 @@ namespace Cake.SqlTools
         /// <param name="connectionString">The connectionString to connect with.</param>
         protected override IDbConnection OpenConnection(string connectionString)
         {
-            NpgsqlConnection con = new NpgsqlConnection(connectionString);
+            var con = new NpgsqlConnection(connectionString);
             con.Open();
 
             return con;

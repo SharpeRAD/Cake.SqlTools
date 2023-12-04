@@ -2,29 +2,56 @@
     <PropertyGroup>
         <AssemblyTitle>Cake.SqlTools</AssemblyTitle>
         <AssemblyName>Cake.SqlTools</AssemblyName>
-        <PackageId>Cake.SqlTools</PackageId>
-        <OutputType>Library</OutputType>
 
-        <TargetFrameworks>net461;netstandard2.0;net5.0</TargetFrameworks>
+        <IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<PublishRepositoryUrl>true</PublishRepositoryUrl>
+		<EmbedUntrackedSources>true</EmbedUntrackedSources>
+		<GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <IncludeSymbols>true</IncludeSymbols>
+
+        <TargetFrameworks>net6.0;net7.0;net8.0</TargetFrameworks>
 
         <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
         <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
         <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
         <GenerateAssemblyInformationalVersionAttribute>false</GenerateAssemblyInformationalVersionAttribute>
         <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
-	    <ContentSNIFiles>true</ContentSNIFiles>
+        <ContentSNIFiles>true</ContentSNIFiles>
     </PropertyGroup>
 
     <PropertyGroup>
-        <DocumentationFile>bin\Debug\net46\Cake.SqlTools.xml</DocumentationFile>
+         <PackageId>Cake.SqlTools</PackageId>
+         <Version>0.0.0</Version>
+         <Authors>Phillip Sharpe</Authors>
+         <Copyright>Copyright (c) Phillip Sharpe 2015</Copyright>
+         <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+         <Description>Cake Build addon for executing sql queries.</Description>
+         <PackageTags>Cake cake-addin Script Build SQL Queries</PackageTags>
+         <PackageIcon>icon.png</PackageIcon>
+         <PackageIconUrl>https://cdn.jsdelivr.net/gh/cake-contrib/graphics/png/addin/cake-contrib-addin-medium.png</PackageIconUrl>
+         <PackageProjectUrl>https://github.com/SharpeRAD/Cake.SqlTools</PackageProjectUrl>
+         <PackageReadmeFile>README.md</PackageReadmeFile>
+         <PackageReleaseNotes>See release notes file</PackageReleaseNotes>
     </PropertyGroup>
 
     <ItemGroup>
-        <PackageReference Include="Cake.Core" Version="1.0.0" PrivateAssets="All" />
+         <None Include="icon.png" Pack="true" Visible="false" PackagePath="." />
+         <None Include="..\..\LICENSE" Pack="true" Visible="false" PackagePath="." />
+         <None Include="..\..\README.md" Pack="true" Visible="false" PackagePath="." />
+         <None Include="..\..\ReleaseNotes.md" Pack="true" Visible="false" PackagePath="." />
+    </ItemGroup>
 
-        <PackageReference Include="Microsoft.Data.SqlClient" Version="2.1.2" />
-        <PackageReference Include="MySql.Data" Version="8.0.24" />
-        <PackageReference Include="Npgsql" Version="4.0.11" Condition="'$(TargetFramework)' == 'net461'" />
-        <PackageReference Include="Npgsql" Version="5.0.4" Condition="'$(TargetFramework)' != 'net461'" />
+    <ItemGroup>
+        <PackageReference Include="Cake.Core" Version="4.0.0" PrivateAssets="All" />
+        <PackageReference Include="Microsoft.Data.SqlClient" Version="5.1.2" />
+        <PackageReference Include="MySql.Data" Version="8.2.0" />
+        <PackageReference Include="Npgsql" Version="8.0.1" />
+
+        <PackageReference Include="Cake.Addin.Analyzer" Version="0.1.3">
+             <PrivateAssets>all</PrivateAssets>
+             <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
     </ItemGroup>
 </Project>

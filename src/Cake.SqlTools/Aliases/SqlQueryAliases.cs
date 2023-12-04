@@ -1,10 +1,9 @@
 ﻿#region Using Statements
 using System;
-
 using Cake.Core;
-using Cake.Core.IO;
 using Cake.Core.Annotations;
 using Cake.Core.Diagnostics;
+using Cake.Core.IO;
 #endregion
 
 
@@ -29,11 +28,11 @@ namespace Cake.SqlTools
         {
             if (String.IsNullOrEmpty(query))
             {
-                throw new ArgumentNullException("query");
+                throw new ArgumentNullException(nameof(query));
             }
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             ICakeLog log = settings.AllowLogs ? context.Log : new Logging.QuietLog();
@@ -82,11 +81,11 @@ namespace Cake.SqlTools
         {
             if (path == null)
             {
-                throw new ArgumentNullException("path");
+                throw new ArgumentNullException(nameof(path));
             }
             if (settings == null)
             {
-                throw new ArgumentNullException("settings");
+                throw new ArgumentNullException(nameof(settings));
             }
 
             ICakeLog log = settings.AllowLogs ? context.Log : new Logging.QuietLog();

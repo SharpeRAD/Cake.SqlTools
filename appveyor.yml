@@ -1,12 +1,14 @@
-# Build script
+# Initalize
 init:
-  - git config --global core.autocrlf true
-  
-image: Visual Studio 2019
+  - git config --global core.autocrlf false
 
-# Build script
+install:
+  - sh: curl -sSL https://dot.net/v1/dotnet-install.sh | sudo bash /dev/stdin --install-dir /usr/share/dotnet --version 8.0.100
+
+image: Ubuntu
+
 build_script:
-  - cmd: powershell -NoProfile -ExecutionPolicy unrestricted -Command .\build.ps1 -Target "AppVeyor"
+  - sh: ./build.sh --target="appveyor"
 
 # Tests
 test: off
@@ -17,3 +19,5 @@ branches:
   only:
     - master
     - develop
+
+skip_tags: true

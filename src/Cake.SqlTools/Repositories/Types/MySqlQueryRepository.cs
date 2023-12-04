@@ -1,9 +1,7 @@
 #region Using Statements
 using System.Data;
-
-using MySql.Data.MySqlClient;
-
 using Cake.Core.Diagnostics;
+using MySql.Data.MySqlClient;
 #endregion
 
 
@@ -36,9 +34,9 @@ namespace Cake.SqlTools
         /// Opens a connection to the database
         /// </summary>
         /// <param name="connectionString">The connectionString to connect with.</param>
-        protected override  IDbConnection OpenConnection(string connectionString)
+        protected override IDbConnection OpenConnection(string connectionString)
         {
-            IDbConnection con = MySqlClientFactory.Instance.CreateConnection();
+            var con = MySqlClientFactory.Instance.CreateConnection();
 
             con.ConnectionString = connectionString;
             con.Open();

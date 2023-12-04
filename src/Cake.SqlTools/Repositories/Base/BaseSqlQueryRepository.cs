@@ -1,5 +1,4 @@
 #region Using Statements
-using System;
 using System.Data;
 
 using Cake.Core.Diagnostics;
@@ -15,7 +14,7 @@ namespace Cake.SqlTools
     public abstract class BaseSqlQueryRepository : ISqlQueryRepository
     {
         #region Fields
-        private ICakeLog _Logger;
+        private readonly ICakeLog _Logger;
         #endregion
 
 
@@ -27,7 +26,7 @@ namespace Cake.SqlTools
         /// Initializes a new instance of the <see cref="BaseSqlQueryRepository" /> class.
         /// </summary>
         /// <param name="log">The log.</param>
-        public BaseSqlQueryRepository(ICakeLog log)
+        protected BaseSqlQueryRepository(ICakeLog log)
         {
             _Logger = log;
         }
@@ -58,13 +57,11 @@ namespace Cake.SqlTools
         {
             try
             {
-                using (IDbConnection conn = this.OpenConnection(connectionString))
-                {
-                    //Call Command
-                    conn.CreateTextCommand(query)
-                        .SetTimeout(0)
-                        .ExecuteNonQuery();
-                }
+                using IDbConnection conn = this.OpenConnection(connectionString);
+                //Call Command
+                conn.CreateTextCommand(query)
+                    .SetTimeout(0)
+                    .ExecuteNonQuery();
             }
             catch (Exception e)
             {
@@ -72,7 +69,7 @@ namespace Cake.SqlTools
                 _Logger.Error(e.Message);
                 throw;
             }
-            
+
             _Logger.Information("Sql query executed successfully.");
             return true;
         }

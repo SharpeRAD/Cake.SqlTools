@@ -2,52 +2,25 @@
 // BUILD
 ///////////////////////////////////////////////////////////////////////////////
 
-Task("Patch-Assembly-Info")
-    .IsDependentOn("Restore-Nuget-Packages")
-    .Does(() =>
-{
-    // Create Solution Info
-    var file = "./src/SolutionInfo.cs";
-
-    CreateAssemblyInfo(file, new AssemblyInfoSettings
-    {
-        Version = version,
-        FileVersion = version,
-        InformationalVersion = semVersion,
-        Copyright = "Copyright (c) 2015 - " + DateTime.Now.Year.ToString() + " " + copyright
-    });
-
-
-
-    // Copy Solution Info
-    foreach (string project in projectDirs)
-    {
-        CopyFileToDirectory(file, project + "/Properties");
-    }
-});
-
-
-
 Task("Build")
-    .IsDependentOn("Patch-Assembly-Info")
+    .IsDependentOn("Clean")
     .Does(() =>
 {
     Information("Building {0}", solution);
 
-    // Check Logger folder
-    if (!DirectoryExists(loggerResultsDir))
-    {
-        CreateDirectory(loggerResultsDir);
-    }
-
     // Create build settings
-    var buildSettings = new DotNetCoreMSBuildSettings
+    var buildSettings = new DotNetMSBuildSettings
     {
-        Verbosity = DotNetCoreVerbosity.Normal,
-        TreatAllWarningsAs = Cake.Common.Tools.DotNetCore.MSBuild.MSBuildTreatAllWarningsAs.Error,
-
-        MaxCpuCount = 3
+        Verbosity = DotNetVerbosity.Normal,
+        TreatAllWarningsAs = Cake.Common.Tools.DotNet.MSBuild.MSBuildTreatAllWarningsAs.Error,
+        MaxCpuCount = 3,
+        Version = version,
+        FileVersion = version,
+		InformationalVersion = semVersion,
+		PackageVersion = version
     };
+
+    buildSettings.WithProperty("PackageOutputPath", nugetDir.FullPath);	
 
     // Add Logger
     buildSettings.AddFileLogger(new MSBuildFileLoggerSettings
@@ -61,19 +34,12 @@ Task("Build")
         ForceNoAlign = true,
         HideItemAndPropertyList = true,
 
-        Verbosity = DotNetCoreVerbosity.Minimal
+        Verbosity = DotNetVerbosity.Minimal
     });
 
-
-
-    // Build Solution
-    Information("Building {0}", solution);
-
-    DotNetCoreBuild(solution, new DotNetCoreBuildSettings
+    DotNetBuild(solution, new DotNetBuildSettings
     {
         Configuration = configuration,
-
-        NoRestore = true,
         MSBuildSettings = buildSettings
     });
 })
@@ -133,3 +99,4 @@ Task("Build")
 
     throw exception;
 });
+
